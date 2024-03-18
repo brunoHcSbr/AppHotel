@@ -1,5 +1,7 @@
 import { Text } from 'react-native'
 import { Link } from 'expo-router'
+import StyledDiv from '../../../components/SyledDiv';
+
 import {
     StyleSheet,
     View,
@@ -7,6 +9,7 @@ import {
     SectionList,
     StatusBar,
   } from 'react-native';
+
 
 export default function Home(){
     const DATA = [
@@ -30,20 +33,9 @@ export default function Home(){
 
     return (
         <>
-        <SafeAreaView style={styles.container}>
-    <SectionList
-      sections={DATA}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({item}) => (
-        <View style={styles.item}>
-          <Text style={styles.title}>{item}</Text>
-        </View>
-      )}
-      renderSectionHeader={({section: {title}}) => (
-        <Text style={styles.header}>{title}</Text>
-      )}
-    />
-  </SafeAreaView>
+       <StyledDiv toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
+       <StyledDiv toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Serviço' colorStatus='yellow'></StyledDiv>
+       <StyledDiv toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
         </>
     )
 }
