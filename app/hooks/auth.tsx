@@ -8,7 +8,7 @@ export const AuthProvider: React.FC<IAuthProviderProps> = ({children}) => {
     const [user,setUser] = useState<IUserLogin>({userLogin:'',password:''})
  
     const handleLogin = () => {
-      if(user.userLogin == 'hotel' && user.password == 'hotel123'){
+      if(user.userLogin == '' && user.password == ''){
         router.push('home')
       } else {
         alert('Erro ao acessar!')

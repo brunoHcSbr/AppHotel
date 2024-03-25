@@ -1,5 +1,5 @@
 import { Text } from 'react-native'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
 import StyledDiv from '../../../components/SyledDiv';
 
 import {
@@ -9,9 +9,15 @@ import {
     SectionList,
     StatusBar,
   } from 'react-native';
+import EditStatus from '../../paginas/editStatus';
 
 
 export default function Home(){
+
+  const changeStatus = () => {
+    router.push('../../paginas/editStatus')
+  }
+
     const DATA = [
         {
           title: '1° Andar',
@@ -33,9 +39,12 @@ export default function Home(){
 
     return (
         <>
-       <StyledDiv toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
-       <StyledDiv toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Serviço' colorStatus='yellow'></StyledDiv>
-       <StyledDiv toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
+       <StyledDiv onPress={changeStatus} toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
+       <StyledDiv onPress={changeStatus} toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Serviço' colorStatus='yellow'></StyledDiv>
+       <StyledDiv onPress={changeStatus} toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
+     
+      
+
         </>
     )
 }
