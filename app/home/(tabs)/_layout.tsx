@@ -12,6 +12,7 @@ export default function TabLayout(){
                 name='index'
                 options={
                     {  
+                        
                         title: 'Tarefas',
                         tabBarIcon: ({color}) => <FontAwesome name='home' size={28} color={color} />
                     }

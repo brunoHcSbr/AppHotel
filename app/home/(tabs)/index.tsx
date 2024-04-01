@@ -9,13 +9,13 @@ import {
     SectionList,
     StatusBar,
   } from 'react-native';
-import EditStatus from '../../paginas/editStatus';
+
 
 
 export default function Home(){
 
-  const changeStatus = () => {
-    router.push('../../paginas/editStatus')
+  const changeStatus = (id: number) => {
+    router.push(`../../paginas/${id}`)
   }
 
     const DATA = [
@@ -39,9 +39,9 @@ export default function Home(){
 
     return (
         <>
-       <StyledDiv onPress={changeStatus} toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
-       <StyledDiv onPress={changeStatus} toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Serviço' colorStatus='yellow'></StyledDiv>
-       <StyledDiv onPress={changeStatus} toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
+       <StyledDiv onPress={ () => { changeStatus(202) }} toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
+       <StyledDiv onPress={() => { changeStatus(203) }} toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Serviço' colorStatus='yellow'></StyledDiv>
+       <StyledDiv onPress={() => { changeStatus(204) }} toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
      
       
 
