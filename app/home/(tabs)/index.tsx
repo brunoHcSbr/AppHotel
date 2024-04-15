@@ -14,7 +14,7 @@ import {
 
 export default function Home(){
 
-  const changeStatus = (id: number) => {
+  const changeStatus = (id: number, status: String, toWalk: String) => {
     router.push(`../../paginas/${id}`)
   }
 
@@ -39,9 +39,9 @@ export default function Home(){
 
     return (
         <>
-       <StyledDiv onPress={ () => { changeStatus(202) }} toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
-       <StyledDiv onPress={() => { changeStatus(203) }} toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Serviço' colorStatus='yellow'></StyledDiv>
-       <StyledDiv onPress={() => { changeStatus(204) }} toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
+       <StyledDiv onPress={ () => { changeStatus(202,"Pendente","Primeiro Andar") }} toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
+       <StyledDiv onPress={() => { changeStatus(203,"Em Serviço","Segundo Andar") }} toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Em Serviço' colorStatus='yellow'></StyledDiv>
+       <StyledDiv onPress={() => { changeStatus(204,"Disponivel","Terceiro Andar") }} toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
      
       
 
