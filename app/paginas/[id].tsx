@@ -1,4 +1,4 @@
-import {Center, Heading, View, GluestackUIProvider, SelectTrigger, SelectInput, SelectIcon, Icon, SelectBackdrop, SelectContent, SelectDragIndicator, SelectItem, SelectPortal, Select, SelectDragIndicatorWrapper, ChevronDownIcon } from '@gluestack-ui/themed'
+import {Center, Heading, View, GluestackUIProvider, SelectTrigger, SelectInput, SelectIcon, Icon, SelectBackdrop, SelectContent, SelectDragIndicator, SelectItem, SelectPortal, Select, SelectDragIndicatorWrapper, ChevronDownIcon, Button, ButtonText } from '@gluestack-ui/themed'
 import { config } from "@gluestack-ui/config"
 import {StyleSheet, Text} from 'react-native'
 import { Stack, useLocalSearchParams } from 'expo-router'
@@ -41,6 +41,18 @@ export default function EditStatus(){
   </SelectPortal>
 </Select>
 
+<Button style={styles.buttonAdd}
+  size="md"
+  variant="solid"
+  action="primary"
+  bgColor='green'
+  isDisabled={false}
+  isFocusVisible={false}
+>
+  <ButtonText>Salvar</ButtonText>
+  
+</Button>
+
              </Center>
     </GluestackUIProvider>
     )
@@ -52,4 +64,8 @@ const styles = StyleSheet.create({
        width: 200,
        fontSize: 5,
     },
+    buttonAdd:{
+      display:'flex',
+      width: 150,
+    }
 })
