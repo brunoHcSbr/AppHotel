@@ -7,7 +7,7 @@ import { FontAwesome6, MaterialCommunityIcons, FontAwesome5} from '@expo/vector-
 
 
 export default function EditStatus(){
-    const { id,status,toWalk } = useLocalSearchParams();
+    const { id } = useLocalSearchParams();
 
     return (
         <GluestackUIProvider config={config}>

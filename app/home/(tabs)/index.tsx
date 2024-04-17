@@ -20,6 +20,10 @@ export default function Home(){
     router.push(`../../paginas/${id}`)
   }
 
+  const createRoom = () => {
+    router.push(`../../paginas/createRoom`)
+  }
+
     const DATA = [
         {
           title: '1° Andar',
@@ -60,6 +64,8 @@ export default function Home(){
   bgColor='green'
   isDisabled={false}
   isFocusVisible={false}
+
+  onPress={createRoom}
 >
   <ButtonText>Adicionar </ButtonText>
   <ButtonIcon as={AddIcon} />
