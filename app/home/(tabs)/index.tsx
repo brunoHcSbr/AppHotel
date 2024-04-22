@@ -3,6 +3,7 @@ import { Link, router } from 'expo-router'
 import StyledDiv from '../../../components/SyledDiv';
 import { AddIcon, Button, ButtonIcon, ButtonText, Input, InputField } from '@gluestack-ui/themed';
 import { AntDesign } from '@expo/vector-icons';
+import { useEffect, useState } from "react"
 
 import {
     StyleSheet,
@@ -12,6 +13,13 @@ import {
     StatusBar,
   } from 'react-native';
 
+  interface IPost {
+    id: number
+    toWalk: number
+    statusRoom: string
+    bed: number
+    bath: number
+}
 
 
 export default function Home(){
@@ -20,28 +28,13 @@ export default function Home(){
     router.push(`../../paginas/${id}`)
   }
 
-  const createRoom = () => {
-    router.push(`../../paginas/createRoom`)
-  }
+  const [list, setList] = useState<IPost[]>([])
 
-    const DATA = [
-        {
-          title: '1° Andar',
-          data: ['N°01', 'N°02', 'N°03'],
-        },
-        {
-          title: '2° Andar',
-          data: ['N°04', 'N°05', 'N°06'],
-        },
-        {
-          title: '3° Andar',
-          data: ['N°07', 'N°08', 'N°09'],
-        },
-        {
-          title: '4° Andar',
-          data: ['N°10', 'N°11'],
-        },
-      ];
+  useEffect(() => {
+      fetch('')
+          .then(response => response.json())
+          .then(json => setList(json))
+  }, [])
 
     return (
         <>
@@ -64,18 +57,21 @@ export default function Home(){
   bgColor='green'
   isDisabled={false}
   isFocusVisible={false}
-
-  onPress={createRoom}
 >
   <ButtonText>Adicionar </ButtonText>
   <ButtonIcon as={AddIcon} />
 </Button>
 
-       <StyledDiv onPress={ () => { changeStatus(202,"Pendente","Primeiro Andar") }} toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
+{list.map((item, index) => (
+                <StyledDiv onPress={ () => { changeStatus(202,"Pendente","Primeiro Andar") }} toWalk={item.toWalk} roomNumer={item.id} statusRoom={item.statusRoom} colorStatus='red'></StyledDiv>
+            ))}
+
+      {/*<StyledDiv onPress={ () => { changeStatus(202,"Pendente","Primeiro Andar") }} key={index} toWalk='Primeiro Andar' roomNumer='N° 202' statusRoom='Pendente' colorStatus='red'></StyledDiv>
        <StyledDiv onPress={() => { changeStatus(203,"Em Serviço","Segundo Andar") }} toWalk='Segundo Andar' roomNumer='N° 202' statusRoom='Em Serviço' colorStatus='yellow'></StyledDiv>
        <StyledDiv onPress={() => { changeStatus(204,"Disponivel","Terceiro Andar") }} toWalk='Terceiro Andar' roomNumer='N° 202' statusRoom='Disponivel' colorStatus='green'></StyledDiv>
      
-      
+          */}
+
 
         </>
     )
