@@ -31,7 +31,7 @@ export default function Home(){
   const [list, setList] = useState<IPost[]>([])
 
   useEffect(() => {
-      fetch('')
+      fetch('https://api-hotel-3.onrender.com')
           .then(response => response.json())
           .then(json => setList(json))
   }, [])
