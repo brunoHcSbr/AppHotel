@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import styled from 'styled-components/native';
- 
+import { Stack, useLocalSearchParams } from 'expo-router' 
+
+
 const Container = styled.View`
   flex: 1;
   padding: 20px;
@@ -39,6 +41,7 @@ export default function CreateRoom(){
   
     return (
         <Container>
+          <Stack.Screen options={{ headerTitle: `Adiconar um quarto` }} />
       <Label>Andar:</Label>
       <Input value={andar} onChangeText={setAndar} />
  
