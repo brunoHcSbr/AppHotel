@@ -4,8 +4,8 @@ import {Button , EditIcon, ButtonIcon, ButtonText, Center } from '@gluestack-ui/
 
 
 interface StyledDivProps {
-    roomNumer: string
-    toWalk: string
+    roomNumer: number
+    toWalk: number
     statusRoom: string
     colorStatus: string
     onPress: () => void
